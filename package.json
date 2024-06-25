@@ -1,19 +1,27 @@
 {
-  "name": "3dprintmaterialmanager",
-  "version": "1.0.0",
-  "description": "A backend application for managing 3D printing materials and associated images using Node.js and MongoDB",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vivek-tripathi-9005/3DPrintMaterialManager.git"
-  },
-  "author": "Vivek Tripathi",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/vivek-tripathi-9005/3DPrintMaterialManager/issues"
-  },
-  "homepage": "https://github.com/vivek-tripathi-9005/3DPrintMaterialManager#readme"
+    "name": "3dprintmaterialmanager",
+    "version": "1.0.0",
+    "description": "A backend application for managing 3D printing materials and associated images using Node.js and MongoDB",
+    "main": "src/index.js",
+    "type": "module",
+    "scripts": {
+        "start": "nodemon src/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vivek-tripathi-9005/3DPrintMaterialManager.git"
+    },
+    "author": "Vivek Tripathi",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/vivek-tripathi-9005/3DPrintMaterialManager/issues"
+    },
+    "homepage": "https://github.com/vivek-tripathi-9005/3DPrintMaterialManager#readme",
+    "dependencies": {
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2",
+        "mongoose": "^8.4.3",
+        "path": "^0.12.7",
+        "prettier": "^3.3.2"
+    }
 }
