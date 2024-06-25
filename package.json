@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "A backend application for managing 3D printing materials and associated images using Node.js and MongoDB",
     "main": "src/index.js",
-    "type": "module",
+    "type": "commonjs",
     "scripts": {
         "start": "nodemon src/index.js",
         "prepare": "husky"

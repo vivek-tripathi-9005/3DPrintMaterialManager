@@ -1,9 +1,8 @@
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+const mongoose = require('mongoose')
+require('dotenv').config()
 
-dotenv.config();
-
-const dbURI = process.env.CONNECTION_STRING;
-mongoose.connect(dbURI)
+const dbURI = process.env.CONNECTION_STRING
+mongoose
+    .connect(dbURI)
     .then(() => console.log('Database connected successfully'))
-    .catch(err => console.log('Database connection error: ', err));
+    .catch((err) => console.log('Database connection error: ', err))
