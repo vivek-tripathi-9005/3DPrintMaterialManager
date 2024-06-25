@@ -19,6 +19,8 @@
 .env.production.local
 .history
 *.log
+package-lock.json
+.husky
 
 # secrets
 secrets.*.js
