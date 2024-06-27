@@ -6,6 +6,7 @@ require('./config/db.js')
 
 // Middleware
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 // Route
 require('./routes')(router)
