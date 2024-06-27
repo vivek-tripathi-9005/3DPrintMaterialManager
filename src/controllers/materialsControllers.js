@@ -53,8 +53,6 @@ module.exports = {
                     ? path.join(__dirname, '../../', req.file.path)
                     : req.body.imageUrl,
             }
-            console.log('req', req.body)
-            console.log('requestData', requestData)
             const updatedMaterial = await Services.materialServices.updateMaterial(
                 id,
                 parseJson(requestData),

@@ -9,9 +9,7 @@ const parseJsonStrings = (data) => {
     for (const key in data) {
         if (data.hasOwnProperty(key)) {
             try {
-                console.log('initial', key, ' ', data[key])
                 parsedData[key] = JSON.parse(data[key])
-                console.log('final', key, ' ', parsedData[key])
             } catch (e) {
                 parsedData[key] = data[key]
             }
