@@ -1,6 +1,7 @@
 const Services = require('../services')
 const parseJson = require('../utils/parseJSON')
 const path = require('path')
+const ApiError = require('../utils/ApiError')
 
 module.exports = {
     getAllMaterials: async (req, res, next) => {
