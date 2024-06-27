@@ -16,12 +16,13 @@ module.exports = {
         try {
             const { id } = req.params
             const material = await Services.materialServices.getMaterialById(id)
-            if (material) res.json(material)
-            else
-                return next({
-                    name: 'Not Found',
-                    message: ('Material with id ', id, ' does not exists'),
-                })
+            if (!material)
+                throw new ApiError(
+                    'PRINTING_MATERIALS_0006',
+                    404,
+                    `3D Printing Material with ${id} does not exists`,
+                )
+            res.json(material)
         } catch (error) {
             return next(error)
         }
