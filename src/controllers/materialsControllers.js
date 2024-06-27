@@ -1,4 +1,6 @@
 const Services = require('../services')
+const parseJson = require('../utils/parseJSON')
+const path = require('path')
 
 module.exports = {
     getAllMaterials: async (req, res, next) => {
@@ -27,7 +29,15 @@ module.exports = {
 
     createMaterial: async (req, res, next) => {
         try {
-            const createdMaterial = await Services.materialServices.createMaterial(req.body)
+            const requestData = {
+                ...req.body,
+                imageUrl: req.file
+                    ? path.join(__dirname, '../../', req.file.path)
+                    : req.body.imageUrl,
+            }
+            const createdMaterial = await Services.materialServices.createMaterial(
+                parseJson(requestData),
+            )
             res.json(createdMaterial)
         } catch (error) {
             return next(error)
@@ -37,7 +47,18 @@ module.exports = {
     updateMaterial: async (req, res, next) => {
         try {
             const { id } = req.params
-            const updatedMaterial = await Services.materialServices.updateMaterial(id, req.body)
+            const requestData = {
+                ...req.body,
+                imageUrl: req.file
+                    ? path.join(__dirname, '../../', req.file.path)
+                    : req.body.imageUrl,
+            }
+            console.log('req', req.body)
+            console.log('requestData', requestData)
+            const updatedMaterial = await Services.materialServices.updateMaterial(
+                id,
+                parseJson(requestData),
+            )
             res.json(updatedMaterial)
         } catch (error) {
             return next(error)
