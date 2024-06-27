@@ -78,7 +78,8 @@ module.exports = {
 
         try {
             const { id } = req.params
-            await Services.materialServices.deleteMaterialById(id)
+            deletedMaterial = await Services.materialServices.deleteMaterialById(id)
+            res.json(deletedMaterial)
         } catch (error) {
             return next(error)
         }
