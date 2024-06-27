@@ -4,6 +4,8 @@ const ApiError = require('../utils/ApiError')
 
 module.exports = {
     getAllMaterials: async () => {
+        console.log('Getting all 3D printing materials')
+
         try {
             return (materials = await Dao.materialsDao.getAll())
         } catch (err) {
@@ -12,6 +14,8 @@ module.exports = {
     },
 
     getMaterialById: async (id) => {
+        console.log(`Getting printing material with id ${id}`)
+
         try {
             return (materials = await Dao.materialsDao.getById(id))
         } catch (err) {
@@ -24,6 +28,8 @@ module.exports = {
     },
 
     createMaterial: async (requestData) => {
+        console.log(`Getting printing material with name ${requestData.name}`)
+
         const { error } = Validations.material.createMaterial(requestData)
         if (error) throw error
         try {
@@ -38,6 +44,8 @@ module.exports = {
     },
 
     updateMaterial: async (id, requestData) => {
+        console.log(`Updating printing material with id ${id}`)
+
         // check if material exists
         material = materials = await Dao.materialsDao.getById(id)
         if (!material)
@@ -63,6 +71,8 @@ module.exports = {
     },
 
     deleteMaterialById: async (id) => {
+        console.log(`Deleting printing material with id ${id}`)
+
         try {
             // check if material exists
             material = materials = await Dao.materialsDao.getById(id)
