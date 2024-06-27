@@ -5,6 +5,10 @@ const ApiError = require('../utils/ApiError')
 
 module.exports = {
     getAllMaterials: async (req, res, next) => {
+        console.log(
+            "Got request to get all 3D printing materials"
+        )
+
         try {
             const materials = await Services.materialServices.getAllMaterials()
             res.json(materials)
@@ -14,6 +18,10 @@ module.exports = {
     },
 
     getMaterialById: async (req, res, next) => {
+        console.log(
+            `Got request to get  a printing material with id ${req.id}`
+        )
+
         try {
             const { id } = req.params
             const material = await Services.materialServices.getMaterialById(id)
@@ -30,6 +38,10 @@ module.exports = {
     },
 
     createMaterial: async (req, res, next) => {
+        console.log(
+            `Got request to create a printing material with name ${req.body.name}`
+        )
+
         try {
             const requestData = {
                 ...req.body,
@@ -47,6 +59,10 @@ module.exports = {
     },
 
     updateMaterial: async (req, res, next) => {
+        console.log(
+            `Got request to update a printing material with id ${req.id}`
+        )
+
         try {
             const { id } = req.params
             const requestData = {
@@ -66,6 +82,10 @@ module.exports = {
     },
 
     deleteMaterial: async (req, res, next) => {
+        console.log(
+            `Got request to delete a printing material with id ${req.id}`
+        )
+
         try {
             const { id } = req.params
             await Services.materialServices.deleteMaterialById(id)
